@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home</title>
+    </head>
+    <body>
+        <h1></h1>
+        <table border=1>
+            <tbody>
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Phone</th>
+            </tr>
+            <tr>
+                {% for user in reg_list %}
+                <td>{{user.username}} </td>
+
+                <td>{{user.email}}</td>
+                <td>{{user.phone}}</td>
+            </tr>
+        </tbody>
+             
+        {% endfor %}
+        </table>
+        
+    </body>
+</html>

@@ -1,0 +1,68 @@
+<html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  {% extends "base.html" %}
+  {% block body %}
+  <style>
+    .profile-container {
+      padding: 50px;
+      background-color: #f9f9f9;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .profile-image {
+      display: block;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease-in-out;
+    }
+    .profile-image:hover {
+      transform: scale(1.05);
+    }
+    .profile-username {
+      margin-top: 20px;
+      font-size: 28px;
+      color: #333;
+    }
+    .edit-profile-btn {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+      display: flex;
+      justify-content: center;
+    }
+    .edit-profile-btn:hover {
+      background-color: #45a049;
+    }
+
+    .profile{
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="profile-container">
+    <img src="{{ user.profile.image.url }}" class="profile-image" height="250px" width="250px" style="border:5px solid #fff">
+    <h1 class="profile">{{ user.username }}</h1>
+  
+    <h1 class="profile-username">Full Name: {{ profile_instance.full_name }}</h1>
+    <p class="profile-username">Bio: {{ profile_instance.bio }}</p>
+    <p class="profile-username">Location: {{ profile_instance.location }}</p>
+    <p class="profile-username">Date of Birth: {{ profile_instance.date_of_birth }}</p>
+    <p class="profile-username">Email: {{ profile_instance.email }}</p>
+    <p class="profile-username">Phone: {{ profile_instance.phone }}</p>
+    <p class="profile-username">Website: <a href="{{ profile.website }}">{{ profile_instance.website }}</a></p>
+  
+    <button class="edit-profile-btn" >Edit Profile</button>
+  </div>
+  {% endblock %}
+</body>
+</html>

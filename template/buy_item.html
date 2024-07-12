@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% extends 'base.html' %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Detail</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #007bff;
+            margin-bottom: 15px;
+        }
+
+        p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        strong {
+            color: #333;
+        }
+
+        .price {
+            color: #28a745;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .price:before {
+            content: "₹"; /* Add Indian Rupee symbol before the price */
+        }
+    </style>
+</head>
+<body>
+    {% block body %}
+    <h1>Item Detail</h1>
+ <div class="row">
+    <div class="col-md-4">
+        <img src="{{item_detail.item_image}}"  height="300px"    alt="loding" class="card">
+    </div>
+    <div class="col-md-2"></div>
+    <div class="col-md-2">
+        <h2>{{ item_detail.item_name }}</h2>
+        <p><strong>Description:</strong> {{ item_detail.item_desc }}</p>
+        <p><strong>Price:</strong> <span class="price">{{ item_detail.item_price }}</span></p>
+      
+    </div>
+    <br>
+    <div>
+    <a href="{% url 'foodapp:update_item' item_detail.id %}" class="btn btn-success">Update</a>
+    <a href="{% url 'foodapp:delete_item' item_detail.id %}" class="btn btn-success">Delete</a>
+    </div>
+</div>
+    {% endblock %}
+</body>
+</html>

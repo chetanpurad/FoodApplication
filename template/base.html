@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Base</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse">
+
+            <div class="container-fluid">
+        
+              <div class="navbar-header">
+        
+                <a class="navbar-brand" href="{% url 'foodapp:items' %}" style='font-weight:bold'>FoodApp</a>
+        
+              </div>
+        
+              <ul class="nav navbar-nav">
+        
+                <li><a href="{% url 'users:profile' %}" >
+                  <span class="material-symbols-outlined" title="Profile">
+                  person
+                  </span></a></li>
+        
+                <li><a href="{% url 'foodapp:add_items'%}">
+                  <span class="material-symbols-outlined"  title="Add Items">
+                    add_box 
+                    </span></a></li>
+        
+                
+        
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+        
+              </ul>
+        
+            </div>
+        
+          </nav>
+          {% block body  %}
+          {% endblock %}
+    </body>
+</html>

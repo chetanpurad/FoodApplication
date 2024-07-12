@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+
+<html>
+    <title>Message</title>
+    {% extends 'base.html'%}
+    <body>
+        {% block body %}
+        <form action="" method="POST">
+            {%  csrf_token %}
+            <h1>Are sure want delete item  {{item.item_name}}</h1>
+            <button type="submit" class="btn btn-success">Yes</button>
+        </form>
+        {% endblock %}
+    </body>
+</html>

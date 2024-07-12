@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Items</title>
+    {% extends 'base.html' %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        li:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .price-button {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .price-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    
+</head>
+<body>
+        <h1>Items</h1>
+  
+        {% block body %}
+        {% for item in item_list %}
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-4">
+                    <img src="{{item.item_image}}"   title="{{item.item_name}}"  height="150px" class="card">
+                </div>
+                <br><br><br>
+                <div  style="font-weight:bold"   class="col-md-3">{{ item.item_name }}</div>
+                <br>
+                <div class="col-md-3">
+                    ₹{{ item.item_price }}
+                </div>
+                <div>
+                <a href="{% url 'foodapp:detail_item' item_id=item.id %}" class="btn btn-success">Details</a>
+                </div>
+            </div>
+            <br><hr><br>
+            
+        {% endfor %}
+        {% endblock %}
+   
+</body>
+</html>
